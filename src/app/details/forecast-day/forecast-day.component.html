@@ -1,0 +1,14 @@
+<div class="day-weather__container" [ngSwitch]="true">
+  <span class="day-name__text">{{name}}</span>
+ 
+  <condi-clouds *ngSwitchCase="state === 'Clouds'"></condi-clouds>
+
+  <condi-drizzle *ngSwitchCase="state === 'Rain' || state === 'Drizzle'"></condi-drizzle>
+
+  <condi-storm *ngSwitchCase="state === 'Storm'"></condi-storm>
+
+  <condi-clear *ngSwitchCase="state === 'Sunny' || state === 'Clear'"></condi-clear>
+
+  <span class="day-temp__text">{{temp}}°</span>
+  <span class="day-state__text">{{state}}</span>
+</div>
