@@ -15,6 +15,8 @@ import { CloudsComponent } from './weather-conditions/clouds/clouds.component';
 import { ForecastDayComponent } from './details/forecast-day/forecast-day.component';
 import { ClearComponent } from './weather-conditions/clear/clear.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TodayComponent } from './details/today/today.component';
+import { FogComponent } from './weather-conditions/fog/fog.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
     DrizzleComponent,
     CloudsComponent,
     ForecastDayComponent,
-    ClearComponent
+    ClearComponent,
+    TodayComponent,
+    FogComponent
   ],
   imports: [
     BrowserModule,

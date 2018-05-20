@@ -1,15 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { WeatherDay } from '../weatherDay';
 
 @Component({
-  selector: 'app-forecast-day',
+  selector: 'forecast-day',
   templateUrl: './forecast-day.component.html',
   styleUrls: ['./forecast-day.component.css']
 })
 export class ForecastDayComponent implements OnInit {
 
-  @Input() name:string;
-  @Input() temp:string;
-  @Input() state:string;
+  @Input() day:WeatherDay;
 
   constructor() { }
 

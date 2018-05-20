@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'condi-drizzle',
   templateUrl: './drizzle.component.html',
-  styleUrls: ['./drizzle.component.css']
+  styles: [`  .forecast-condition__icon {
+    height: 4rem;
+  }`]
 })
 export class DrizzleComponent implements OnInit {
 

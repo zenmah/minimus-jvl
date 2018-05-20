@@ -1,0 +1,54 @@
+.today-weather__container {
+    align-self: center;
+    justify-self: center;
+    display: grid;
+    width: 100%;
+    grid-template-rows: 3fr 1fr;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    grid-gap: 2rem;
+  }
+  
+  .temp-state__container {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+  }
+  
+  .weather-state__text {
+    letter-spacing: 0.5rem;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+  }
+  
+  .hum-wind__container {
+    display: flex;
+    align-items: center;
+    margin-left: -4rem;
+  }
+  
+  .hum-wind__separator {
+    margin: 0 2rem;
+    width: 2px;
+    height: 2.5rem;
+    background-color: white;
+  }
+  
+  .hum__text, .wind__text {
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hum__container, .wind__container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .temperature__text {
+    font-size: 6rem;
+    letter-spacing: 0.75rem;
+  }

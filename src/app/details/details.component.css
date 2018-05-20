@@ -65,10 +65,7 @@ details-page__wrapper-dark {
     height: 100%;
   }
   
-  .temperature__text {
-    font-size: 6rem;
-    letter-spacing: 0.75rem;
-  }
+
   
   .city-name__container {
     display: flex;
@@ -91,56 +88,7 @@ details-page__wrapper-dark {
     padding-bottom: 2rem;
   }
   
-  .today-weather__container {
-    align-self: center;
-    justify-self: center;
-    display: grid;
-    width: 100%;
-    grid-template-rows: 3fr 1fr;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    grid-gap: 2rem;
-  }
-  
-  .temp-state__container {
-    display: flex;
-    justify-content: center;
-    flex-flow: column;
-  }
-  
-  .weather-state__text {
-    letter-spacing: 0.5rem;
-    font-size: 1.15rem;
-    text-transform: uppercase;
-    margin-top: 0.25rem;
-  }
-  
-  .hum-wind__container {
-    display: flex;
-    align-items: center;
-    margin-left: -4rem;
-  }
-  
-  .hum-wind__separator {
-    margin: 0 2rem;
-    width: 2px;
-    height: 2.5rem;
-    background-color: white;
-  }
-  
-  .hum__text, .wind__text {
-    text-transform: uppercase;
-    letter-spacing: 0.2rem;
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
-  }
-  
-  .hum__container, .wind__container {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-  }
+
   
   /*
   ================
@@ -197,39 +145,3 @@ details-page__wrapper-dark {
     width: 100%;
   }
   
-  .day-weather__container {
-    display: flex;
-    flex-flow: column;
-    margin: 2rem 1.5rem;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .day-name__text {
-    font-size: 1.5rem;
-    color: #39437a;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-  }
-  
-  .forecast-condition__icon {
-    height: 4rem;
-  }
-  
-  .day-temp__text {
-    font-size: 1.85rem;
-    color: #0c1066;
-    letter-spacing: 0.25rem;
-    margin: 0.75rem 0;
-    text-align: center;
-    padding-left: 0.35rem;
-  }
-  
-  .day-state__text {
-  
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2rem;
-    color: #2B244D;
-  }

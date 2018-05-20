@@ -16,65 +16,41 @@ export class DetailsComponent implements OnInit {
   hum: number;
   wind: number;
 
-  today: string;
+  currentDayOfWeekName: string;
+  today: WeatherDay;
 
-  day1Name: string;
-  day1State: string;
-  day1Temp: number;
-
-
-  day2Name: string;
-  day2State: string;
-  day2Temp: number;
-
-  day3Name: string;
-  day3State: string;
-  day3Temp: number;
-
-  day4Name: string;
-  day4State: string;
-  day4Temp: number;
-
-  day5Name: string;
-  day5State: string;
-  day5Temp: number;
-
-  days: WeatherDay[];
+  days: WeatherDay[] = []// [{dayNo:1}, {dayNo:2}, {dayNo:3}, {dayNo:4}, {dayNo:5}];
 
   constructor(public activeRouter: ActivatedRoute, public weather: WeatherService) {
   }
 
   ngOnInit() {
-
+    //todo move logic over into service
     const todayNumberInWeek = new Date().getDay();
-    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    this.today = days[todayNumberInWeek];
+    const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
     this.activeRouter.paramMap.subscribe((route: any) => {
 
       this.city = route.params.city;
-      this.weather.getWeatherState(this.city).subscribe((state) => this.state = state);
-      this.weather.getCurrentTemp(this.city).subscribe((temperature) => this.temp = temperature);
-      this.weather.getCurrentHum(this.city).subscribe((humidity) => this.hum = humidity);
-      this.weather.getCurrentWind(this.city).subscribe((windspeed) => this.wind = windspeed);
+
+      //get WeatherDay of Today
+      this.today = {dayNo : 0, name : dayNames[todayNumberInWeek]}
+      this.weather.getWeatherState(this.city).subscribe((state) => this.today.state = state);
+      this.weather.getCurrentTemp(this.city).subscribe((temperature) => this.today.temp = temperature);
+      this.weather.getCurrentHum(this.city).subscribe((humidity) => this.today.hum = humidity);
+      this.weather.getCurrentWind(this.city).subscribe((windspeed) => this.today.wind = windspeed);
       this.weather.getForecast(this.city).subscribe((data: any) => {
         console.log(data);
-        for (let i = 0; i < data.length; i++) {
-          const date = new Date(data[i].dt_txt).getDay();
-          console.log(days[date]);
-          if (((date === todayNumberInWeek + 1) || (todayNumberInWeek === 6 && date === 0)) && !this.day1Name) {
-            this.days.push({name : days[date], state : data[i].weather[0].main, temp : Math.round(data[i].main.temp)}) ;
-          } else if (!!this.day1Name && !this.day2Name && days[date] !== this.day1Name) {
-            this.days.push({name : days[date], state : data[i].weather[0].main, temp : Math.round(data[i].main.temp)}) ;
-
-          } else if (!!this.day2Name && !this.day3Name && days[date] !== this.day2Name) {
-            this.days.push({name : days[date], state : data[i].weather[0].main, temp : Math.round(data[i].main.temp)}) ;
-
-          } else if (!!this.day3Name && !this.day4Name && days[date] !== this.day3Name) {
-            this.days.push({name : days[date], state : data[i].weather[0].main, temp : Math.round(data[i].main.temp)}) ;
-
-          } else if (!!this.day4Name && !this.day5Name && days[date] !== this.day4Name) {
-            this.days.push({name : days[date], state : data[i].weather[0].main, temp : Math.round(data[i].main.temp)}) ;
+        var daysProcessed:number[] = [];
+        var dayNo = 1;
+        for (let i = 0; i < data.length && daysProcessed.length < 6; i++) {
+          const dayNoToProcess = new Date(data[i].dt_txt).getDay();
+          if (!daysProcessed.some( x => x == dayNoToProcess))
+          {
+            daysProcessed.push(dayNoToProcess);
+            var day = {dayNo: dayNo, name : dayNames[dayNoToProcess], state : data[i].weather[0].main, temp : Math.round(data[i].main.temp)};
+            this.days[daysProcessed.length-1] = day;
+            dayNo++;
           }
         }
       });

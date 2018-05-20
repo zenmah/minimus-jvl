@@ -1,0 +1,21 @@
+<div class="today-weather__container">
+  <!--{{today}}-->
+  <div class="temp-state__container">
+    <span class="temperature__text">{{day.temp}}°</span>
+    <span class="weather-state__text">{{day.state}}</span>
+  </div>
+  <div class="hum-wind__container">
+    <div class="hum__container">
+      <span class="hum__text">humidity</span>
+      <span class="hum-value__text">{{day.hum}} %</span>
+    </div>
+
+    <div class="hum-wind__separator">&nbsp;</div>
+
+    <div class="wind__container">
+      <span class="wind__text">wind</span>
+      <span class="wind-value__text">{{day.wind}} K/M</span>
+    </div>
+  </div>
+</div>
+
