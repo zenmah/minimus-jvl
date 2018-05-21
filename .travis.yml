@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+  - "7"
+branches:
+  only:
+    - master
+before_script:
+  - npm install -g firebase-tools
+  - npm install -g @angular/cli
+script: 
+  - ng build --prod
+cache:
+  directories:
+    - "node_modules"
+deploy:
+  provider: firebase
+  token:
+    secure: he+sdvBT4J3Q4hXSXh+3s8/lliYIMR/4I5YYsVbEnMPBXmhJC5loPGXXts7gRgJk7tRH2K6zPwGkvd6ENP1mx/32bOZ9MPDbRLmQkzmeT/cvuT+JPtRQlwy1jZ4DYYRXk5ZcfLaIRmJgEnpvq+umUAF7GqzJKyPTCdswlNPOwe7305sz8Eh1+rNfK9TlPBFQaeFVzvYYIvOHHO0d9eJmb3JrlzMlFAdJE5TGK32slTEKpTWKw+IQUkSshgVtjb1l4nrKHcKgPGnFOrda1oSjh4CvrylnyJWZZ7q3JwEngOjqhgDTOu5QLW5/rsCKrTFZbGsG8pzb6mmU4QvCKdwp225XHiORkDINrCfDZE5jQOLyp+ETu7vISTplfw1U3vMup+Fw3EHQyAAfamDuk6AWI2f49Z0LJ/VJboEjL19pE8cCYjR1QLtXgxMMp/NZvdZbHAJ9SN6R8raG+7SOqhRFAChnpvXIcPqBWqHY7C8E2BQBGm2Ddsgg4u77DenRETgCjLmKvSIYspk3+kHsLbX3HQRfubK80i9Hddt+edr+GKBYKJPVCn4VBi7PEXYVdE6huATdnJtw2ya1zmdWV1grYX1FT40O5+p6xDVmhs3Ke2GKI3wu2+89Ei9SDuUQf45bMiL8G12ReBUAv28OxEfVk4Be4vx3twdE7X9h7AdV+wQ=
+  project: minimus-jvl
+notifications:
+  email:
+    on_failure: change
+    on_success: change
