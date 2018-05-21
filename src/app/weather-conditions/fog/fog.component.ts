@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-fog',
+  selector: 'condi-fog',
   templateUrl: './fog.component.html',
   styles: []
 })
